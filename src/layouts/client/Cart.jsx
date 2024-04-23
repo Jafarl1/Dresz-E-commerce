@@ -1,11 +1,8 @@
 import { useSelector } from "react-redux";
 import DataContainer from "./data-container/DataContainer";
 import Loader from "../components/Loader";
-import useAuth from "../../hooks/useAuth";
-import { isClient } from "../../utils/utils";
 
 function Favorites() {
-  const { loggedUser } = useAuth();
   const cart = useSelector((state) => state.cart);
   const brands = useSelector((state) => state.brands);
 

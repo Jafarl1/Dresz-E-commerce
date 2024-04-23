@@ -160,7 +160,6 @@ function SignUp() {
             </Grid>
           </form>
         </Box>
-        {/* <Copyright sx={{ mt: 5 }} /> */}
       </Container>
     </div>
   );

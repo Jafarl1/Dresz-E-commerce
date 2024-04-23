@@ -1,9 +1,7 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { Navigate } from "react-router-dom";
 import useAuth from "../../../hooks/useAuth";
 import { isAdminOrSuperadmin } from "../../../utils/utils";
-import { getBrands } from "../../../services/dashboard/brands";
-import { getProducts } from "../../../services/dashboard/products";
 import Box from "@mui/material/Box";
 import Container from "@mui/material/Container";
 import Accordion from "@mui/material/Accordion";
@@ -58,9 +56,7 @@ function Products() {
             >
               Brands list
             </AccordionSummary>
-            <BrandsList
-            // brandList={brandList} setBrandList={setBrandList}
-            />
+            <BrandsList />
           </Accordion>
 
           <Accordion
@@ -75,9 +71,7 @@ function Products() {
             >
               Add a new product
             </AccordionSummary>
-            <AddProducts
-            // brandList={brandList}
-            />
+            <AddProducts />
           </Accordion>
 
           <Accordion
@@ -92,11 +86,7 @@ function Products() {
             >
               Products List
             </AccordionSummary>
-            <ProductsList
-            // brandList={brandList}
-            // productsList={productsList}
-            // setProductsList={setProductsList}
-            />
+            <ProductsList />
           </Accordion>
         </Box>
       </Container>

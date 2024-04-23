@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import { useState, Fragment } from "react";
 import { PropagateLoader } from "react-spinners";
 import { useDispatch, useSelector } from "react-redux";
 import { removeAdminRED } from "../../../redux/admin/adminsSlice";
@@ -87,34 +87,3 @@ function AdminsList() {
 }
 
 export default AdminsList;
-
-{
-  /* <div className="adminInfo">
-<span>
-  name:
-  <span>{admin.name}</span>
-</span>
-<span>
-  surname:
-  <span>{admin.surname}</span>
-</span>
- <span>
-  email:
-  <span>{admin.email}</span>
-</span>
-<span>
-  id:
-  <span>{admin._id}</span>
-</span>
-<span>
-  created:
-  <span>{admin.createdAt}</span>
-</span> 
-</div>
- <div
-className="deleteAdminBtn"
-onClick={() => deleteAdmin(admin._id)}
->
-<img src={deleteIcon} alt="delete" />
-</div>  */
-}

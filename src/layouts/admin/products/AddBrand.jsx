@@ -3,7 +3,6 @@ import { useDispatch } from "react-redux";
 import { getBrandsListRED } from "../../../redux/common/brandsSlice";
 import { setLoadingRED } from "../../../redux/loading/loadingSlice";
 import { resetForm, isDataValid } from "../../../utils/utils";
-// import { useAuth } from "../../../contexts/AuthContext";
 import { createBrand, getBrands } from "../../../services/dashboard/brands";
 import Swal from "sweetalert2";
 import AccordionActions from "@mui/material/AccordionActions";
@@ -13,7 +12,6 @@ import FormInput from "../../components/FormInput";
 
 function AddBrand() {
   const brandFormRef = useRef();
-  // const { setLoading } = useAuth();
 
   const dispatch = useDispatch();
   const [brandData, setBrandData] = useState({

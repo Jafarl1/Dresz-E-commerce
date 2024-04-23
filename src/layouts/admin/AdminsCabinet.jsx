@@ -120,7 +120,6 @@ function AdminsCabinet() {
 
         if (boolean) {
           if (adminsData) {
-            console.log(adminsData);
             dispatch(getAdminsListRED(adminsData));
           } else {
             console.error(
@@ -249,47 +248,3 @@ function AdminsCabinet() {
 }
 
 export default AdminsCabinet;
-
-// const getAdminsList = async () => {
-//   const response = await getAdmins();
-//   const { data } = response.data;
-//   dispatch(addAdminsListRED(data));
-// };
-
-// const getBrandsList = async () => {
-//   const response = await getBrands();
-//   const { data } = response.data;
-//   dispatch(addBrandsListRED(data));
-// };
-
-// const getProductsList = async () => {
-//   const response = await getProducts();
-//   const { product } = response.data.data;
-//   dispatch(addProductsListRED(product));
-// };
-
-// const combineGetterFunctions = async () => {
-//   setLoading(true);
-//   await getAdminsList();
-//   await getBrandsList();
-//   await getProductsList();
-//   setLoading(false);
-// };
-//--------------------------------------------------
-// const getAdminsCabinetsData = async () => {
-//   setLoading(true);
-
-//   const adminsResponse = await getAdmins();
-//   const { data: adminsData } = adminsResponse.data;
-//   dispatch(addAdminsListRED(adminsData));
-
-//   const brandsResponse = await getBrands();
-//   const { data: brandsData } = brandsResponse.data;
-//   dispatch(addBrandsListRED(brandsData));
-
-//   const productsResponse = await getProducts();
-//   const { product: productsData } = productsResponse.data.data;
-//   dispatch(addProductsListRED(productsData));
-
-//   setLoading(false);
-// };

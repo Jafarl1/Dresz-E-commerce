@@ -70,83 +70,6 @@ function SignIn() {
     dispatch(setCartListRED(allProducts));
   };
 
-  // const postCartDataToServer = async () => {
-  //   let postData = {
-  //     basket: [],
-  //   };
-  //   const cartDataResponse = await getCartData();
-  //   const { data: cartData } = cartDataResponse.data;
-
-  //   cartRed.map((product) => {
-  //     if (!cartData.some((el) => el.productId === product._id)) {
-  //       postData.basket.push(formattedCartData(product));
-  //     }
-  //   });
-
-  //   await postCartData(postData);
-
-  //   const newCartDataResponse = await getCartData();
-  //   const { data: newCartData } = newCartDataResponse.data;
-
-  //   let responses = [];
-  //   let promises = [];
-  //   let allProducts = [];
-
-  //   newCartData.forEach((product) => {
-  //     responses.push(`${product.productId}response`);
-  //     promises.push(getSingleProduct(product.productId));
-  //   });
-
-  //   responses = await Promise.all(promises);
-
-  //   responses.forEach((response) => {
-  //     allProducts.push(response.data.data);
-  //   });
-
-  //   allProducts = allProducts.filter((product) => product);
-
-  //   localStorage.setItem("cart", JSON.stringify(allProducts));
-  //   dispatch(setCartListRED(allProducts));
-  // };
-
-  // const postCartDataToServer = async () => {
-  //   const cartDataResponse = await getCartData();
-  //   const { data: cartData } = cartDataResponse.data;
-
-  //   const existingProductIds = cartData.map((product) => product.productId);
-
-  //   const postData = {
-  //     basket: cartRed
-  //       .filter((product) => !existingProductIds.includes(product._id))
-  //       .map((product) => formattedCartData(product)),
-  //   };
-
-  //   console.log(cartRed, postData);
-
-  //   await postCartData(postData);
-
-  //   const newCartDataResponse = await Promise.all(
-  //     cartData.map((product) => getSingleProduct(product.productId))
-  //   );
-
-  //   let allProducts = newCartDataResponse
-  //     .map((response) => response.data.data)
-  //     .filter((product) => product);
-
-  //   allProducts = allProducts.map((product) => {
-  //     const identicalProduct = cartData.find(
-  //       (el) => el.productId === product._id
-  //     );
-  //     return {
-  //       ...product,
-  //       serverId: identicalProduct ? identicalProduct._id : null,
-  //     };
-  //   });
-
-  //   localStorage.setItem("cart", JSON.stringify(allProducts));
-  //   dispatch(setCartListRED(allProducts));
-  // };
-
   const handleSubmit = async (event) => {
     event.preventDefault();
     dispatch(setLoadingRED(true));
@@ -261,7 +184,6 @@ function SignIn() {
             </Grid>
           </form>
         </Box>
-        {/* <Copyright sx={{ mt: 8, mb: 4 }} /> */}
       </Container>
     </div>
   );

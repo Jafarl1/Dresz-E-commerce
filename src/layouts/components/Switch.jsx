@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 
-function Switch({ selector, products, data, toggle }) {
+function Switch({ products, data, toggle }) {
   const [publish, setPublish] = useState();
 
   const handleData = () => {

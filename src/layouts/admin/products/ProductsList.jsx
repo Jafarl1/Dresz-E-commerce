@@ -1,4 +1,4 @@
-import React, { useState, Fragment } from "react";
+import { useState, Fragment } from "react";
 import { PropagateLoader } from "react-spinners";
 import { useDispatch, useSelector } from "react-redux";
 import { removeProductRED } from "../../../redux/common/productsSlice";
@@ -86,70 +86,3 @@ function ProductsList() {
 }
 
 export default ProductsList;
-
-{
-  /* <div className="adminInfo">
-<div style={{ display: "flex" }}>
-  {product.images.map((image) => (
-    <img
-      src={image.url}
-      key={image.url}
-      alt="product image"
-      width={100}
-      height={100}
-      style={{ margin: "10px" }}
-    />
-  ))}
-</div>
-<span>
-  brand:
-  <span>{getBrandNameById(product.brandId)}</span>
-</span>
-<span>
-  name:
-  <span>{product.title}</span>
-</span>
-<span>
-  description:
-  <span>{product.description}</span>
-</span>
-<span>
-  price:
-  <span>{product.productPrice}$</span>
-</span>
-<span>
-  sale price:
-  <span>{product.salePrice}$</span>
-</span>
-<span>
-  stock:
-  <span>{product.stock}</span>
-</span>
-<span>
-  ID:
-  <span>{product._id}</span>
-</span>
-<span>
-  created:
-  <span>{product.createdAt}</span>
-</span>
-<span>
-  updated:
-  <span>{product.updatedAt}</span>
-</span>
-<span>
-  isDeal:
-  <span>{formatDataToString(product.isDeal)}</span>
-</span>
-<span>
-  isPublished:
-  <span>{formatDataToString(product.isPublished)}</span>
-</span>
-</div>
-<div
-className="deleteAdminBtn"
-onClick={() => deleteProduct(product._id)}
->
-<img src={deleteIcon} alt="delete" />
-</div> */
-}

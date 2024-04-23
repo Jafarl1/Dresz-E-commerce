@@ -1,11 +1,8 @@
 import { useSelector } from "react-redux";
-import useAuth from "../../hooks/useAuth";
 import DataContainer from "./data-container/DataContainer";
 import Loader from "../components/Loader";
 
 function HomePage() {
-  const { loggedUser } = useAuth();
-
   const brands = useSelector((state) => state.brands);
   const products = useSelector((state) => state.products);
   const cart = useSelector((state) => state.cart);

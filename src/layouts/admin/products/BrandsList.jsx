@@ -78,29 +78,3 @@ function BrandsList() {
 }
 
 export default BrandsList;
-
-{
-  /* <span>
-              created:
-              <span>{brand.createdAt}</span>
-            </span>
-            <span>
-              updated:
-              <span>{brand.updatedAt}</span>
-            </span>
-            <span>
-              ID:
-              <span>{brand._id}</span>
-            </span> */
-}
-{
-  /* </div> */
-}
-{
-  /* <div
-            className="deleteAdminBtn"
-            onClick={() => deleteBrand(brand._id)}
-          >
-            <img src={deleteIcon} alt="delete" />
-          </div> */
-}

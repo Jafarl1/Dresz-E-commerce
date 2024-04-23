@@ -3,7 +3,6 @@ import { useSelector, useDispatch } from "react-redux";
 import { setLoadingRED } from "../../../redux/loading/loadingSlice";
 import { getProductsListRED } from "../../../redux/common/productsSlice";
 import { resetForm, isDataValid } from "../../../utils/utils";
-import useAuth from "../../../hooks/useAuth";
 import {
   createProduct,
   getProducts,
@@ -20,7 +19,6 @@ function AddProducts() {
   const dispatch = useDispatch();
   const brandsList = useSelector((state) => state.brands);
   const productFormRef = useRef();
-  // const { setLoading } = useAuth();
 
   const [productData, setProductData] = useState({
     brandId: "",

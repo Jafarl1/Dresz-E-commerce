@@ -16,8 +16,6 @@ import {
   deleteProductInCart,
   postCartData,
 } from "../../../services/website/basket";
-import { setLoadingRED } from "../../../redux/loading/loadingSlice";
-import Loader from "../../components/Loader";
 
 function DataContainer({ data }) {
   const [formattedData, setFormattedData] = useState([]);
