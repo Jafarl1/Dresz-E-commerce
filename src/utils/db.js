@@ -4,12 +4,17 @@ export const ABOUT = "about";
 export const CONTACTS = "contacts";
 
 export const headerLinks = [
-  { name: "I want to buy", to: "/layout", aosDuration: 400 },
-  { name: "I want to sell", to: "/layout/signin", aosDuration: 800 },
+  { name: "Shop now", to: "/layout", aosDuration: 400 },
+  { name: "Register", to: "/layout/signin", aosDuration: 800 },
   { name: "Cooperation", to: "/layout/contacts", aosDuration: 1200 },
   { name: "More about", to: "/layout/about", aosDuration: 1800 },
 ];
-
+export const headerStats = [
+  { name: "Partners", value: "26" },
+  { name: "Daily deals", value: "300 +" },
+  { name: "New products daily", value: "48" },
+  { name: "Brands", value: "100 +" },
+];
 export const mainSections = [
   { name: "home", path: HOME },
   { name: "new", path: NEW },

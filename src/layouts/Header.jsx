@@ -1,14 +1,7 @@
-import { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { headerLinks } from "../utils/db";
+import { headerLinks, headerStats } from "../utils/db";
 import headerBg from "../assets/images/header-bg.jpg";
 
-const stats = [
-  { name: "Partners car dealerships", value: "26" },
-  { name: "Daily deals", value: "300 +" },
-  { name: "New announcements daily", value: "48" },
-  { name: "Brands", value: "100 +" },
-];
 const linkStyles = {
   borderRadius: "5px",
   padding: "20px 30px",
@@ -87,7 +80,7 @@ function Header() {
             ))}
           </div>
           <dl className="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
-            {stats.map((stat) => (
+            {headerStats.map((stat) => (
               <div key={stat.name} className="flex flex-col-reverse">
                 <dt className="text-base leading-7 text-gray-300">
                   {stat.name}
