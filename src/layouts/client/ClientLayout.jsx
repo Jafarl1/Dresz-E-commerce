@@ -1,7 +1,7 @@
 import { useLocation, Outlet } from "react-router-dom";
 import useAuth from "../../hooks/useAuth";
 import Navbar from "../components/Navbar";
-import HomePage from "./HomePage";
+import Home from "./Home";
 import Footer from "../components/Footer";
 import Loader from "../components/Loader";
 
@@ -18,7 +18,7 @@ function ClientLayout() {
   ) : (
     <>
       <Navbar />
-      {clearPathname() ? <HomePage /> : <Outlet />}
+      {clearPathname() ? <Home /> : <Outlet />}
       <Footer />
     </>
   );

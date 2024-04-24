@@ -1,22 +1,16 @@
 import { useSelector } from "react-redux";
+import { updateProducts } from "../../utils/utils";
 import DataContainer from "./data-container/DataContainer";
 import Loader from "../components/Loader";
 
-function HomePage() {
-  const brands = useSelector((state) => state.brands);
+function Home() {
   const products = useSelector((state) => state.products);
+  const brands = useSelector((state) => state.brands);
   const cart = useSelector((state) => state.cart);
-
-  let updatedProducts = products
-    .map((product) => ({
-      ...product,
-      serverId: cart.find((el) => el._id === product._id)?.serverId || null,
-    }))
-    .filter((product) => product.isPublish);
 
   const data = {
     brands,
-    products: updatedProducts,
+    products: updateProducts(products, cart),
   };
 
   function isDataLoaded() {
@@ -26,4 +20,4 @@ function HomePage() {
   return isDataLoaded() ? <DataContainer data={data} /> : <Loader />;
 }
 
-export default HomePage;
+export default Home;

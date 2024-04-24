@@ -1,4 +1,4 @@
-import { Navigate, useNavigate } from "react-router-dom";
+import { Navigate, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setLoadingRED } from "../../redux/loading/loadingSlice";
 import { setCartListRED } from "../../redux/client/cartSlice";
@@ -23,6 +23,7 @@ import Swal from "sweetalert2";
 function SignIn() {
   const { loggedUser, setLoggedUser } = useAuth();
   const navigate = useNavigate();
+  const location = useLocation();
   const loadingRed = useSelector((state) => state.loading);
   const cartRed = useSelector((state) => state.cart);
   const dispatch = useDispatch();
@@ -88,7 +89,11 @@ function SignIn() {
         localStorage.setItem("access_token", token);
         await postCartDataToServer();
         setLoggedUser(user);
-        navigate("/layout/clients_cabinet");
+        if (location.state && location.state.goToCheckout) {
+          navigate("/layout/checkout");
+        } else {
+          navigate("/layout/clients_cabinet");
+        }
       } else {
         alert("Wrong credentials. Please try again.");
         dispatch(setLoadingRED(false));

@@ -2,7 +2,7 @@ import { useSelector } from "react-redux";
 import DataContainer from "./data-container/DataContainer";
 import Loader from "../components/Loader";
 
-function Favorites() {
+function Cart() {
   const cart = useSelector((state) => state.cart);
   const brands = useSelector((state) => state.brands);
 
@@ -32,4 +32,4 @@ function Favorites() {
   );
 }
 
-export default Favorites;
+export default Cart;

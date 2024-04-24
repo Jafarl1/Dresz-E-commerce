@@ -39,7 +39,7 @@ function Modal({ title, data, deleteFunction, closeModal }) {
     updatedList.push(updatedProduct);
 
     dispatch(getProductsListRED(updatedList));
-    await updateProduct(id, updatedProduct);
+    updateProduct(id, updatedProduct);
   };
 
   const visualizeData = (data) => {

@@ -21,7 +21,7 @@ export const getCartData = async () => {
   }
 };
 
-export const deleteProductInCart = async (id) => {
+export const deleteFromCart = async (id) => {
   if (!id) {
     throw new Error("Id is missing");
   }

@@ -50,8 +50,8 @@ function Navbar() {
     localStorage.removeItem("access_token");
     localStorage.removeItem("cart");
     dispatch(setCartListRED([]));
-    if (pathname.includes("clients_cabinet")) {
-      navigate("signin");
+    if (pathname.includes("clients_cabinet") || pathname.includes("checkout")) {
+      navigate("signin", { replace: true });
     }
     handleCloseUserMenu();
   };
@@ -79,13 +79,13 @@ function Navbar() {
         >
           <NavLink
             to="tel:+994777666600"
-            style={{ fontSize: "14px", color: "var(--light)" }}
+            style={{ fontFamily: "Montserrat",fontSize: "12px", color: "var(--light)" }}
           >
             +994 77 766 66 00
           </NavLink>
           <NavLink
             to="mailto:zohrabjafarli@gmail.com"
-            style={{ fontSize: "14px", color: "var(--light)" }}
+            style={{ fontFamily: "Montserrat", fontSize: "14px", color: "var(--light)" }}
           >
             zohrabjafarli@gmail.com
           </NavLink>

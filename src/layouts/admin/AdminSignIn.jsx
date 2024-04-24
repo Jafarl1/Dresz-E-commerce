@@ -1,5 +1,6 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setLoadingRED } from "../../redux/loading/loadingSlice";
+import { setCartListRED } from "../../redux/client/cartSlice";
 import useAuth from "../../hooks/useAuth";
 import { signInRequest } from "../../services/auth";
 import { isAdminOrSuperadmin, isClient } from "../../utils/utils";
@@ -29,8 +30,14 @@ function AdminSignIn() {
     };
 
     try {
+      const previousLoggedUser = loggedUser ? true : false;
       const data = await signInRequest(adminData);
       const { token, user } = data.data.data;
+
+      if (previousLoggedUser) {
+        localStorage.removeItem("cart");
+        dispatch(setCartListRED([]));
+      }
 
       if (isAdminOrSuperadmin(user)) {
         localStorage.setItem("access_token", token);

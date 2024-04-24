@@ -1,5 +1,5 @@
 export const HOME = "/layout";
-export const NEW = "new";
+export const SALE = "sale";
 export const ABOUT = "about";
 export const CONTACTS = "contacts";
 
@@ -19,7 +19,7 @@ export const headerStats = [
 
 export const mainSections = [
   { name: "home", path: HOME },
-  { name: "new", path: NEW },
+  { name: "sale", path: SALE },
   { name: "about", path: ABOUT },
   { name: "contacts", path: CONTACTS },
 ];
@@ -33,3 +33,5 @@ export const loggedUserPages = [
   { name: "cabinet", action: "tocabinet" },
   { name: "sign out", action: "signout" },
 ];
+
+export const productCategories = ["all", "shoes", "clothing", "accessories"];

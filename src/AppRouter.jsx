@@ -2,9 +2,9 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Header from "./layouts/Header";
 
 import ClientLayout from "./layouts/client/ClientLayout";
-import HomePage from "./layouts/client/HomePage";
+import Home from "./layouts/client/Home";
 import AboutPage from "./layouts/client/AboutPage";
-import NewProducts from "./layouts/client/NewProducts";
+import Sale from "./layouts/client/Sale";
 import Contacts from "./layouts/client/Contacts";
 import Cart from "./layouts/client/Cart";
 import Favorites from "./layouts/client/Favorites";
@@ -18,6 +18,8 @@ import AdminsCabinet from "./layouts/admin/AdminsCabinet";
 import Dashboard from "./layouts/admin/dashboard/Dashboard";
 import Products from "./layouts/admin/products/Products";
 import Admins from "./layouts/admin/admins/Admins";
+import SingleProduct from "./layouts/client/SingleProduct";
+import Checkout from "./layouts/client/Checkout";
 
 const router = createBrowserRouter([
   {
@@ -30,15 +32,15 @@ const router = createBrowserRouter([
     children: [
       {
         path: "./",
-        element: <HomePage />,
+        element: <Home />,
       },
       {
         path: "about",
         element: <AboutPage />,
       },
       {
-        path: "new",
-        element: <NewProducts />,
+        path: "sale",
+        element: <Sale />,
       },
       {
         path: "contacts",
@@ -63,6 +65,14 @@ const router = createBrowserRouter([
       {
         path: "clients_cabinet",
         element: <ClientsCabinet />,
+      },
+      {
+        path: "product/:id",
+        element: <SingleProduct />,
+      },
+      {
+        path: "checkout",
+        element: <Checkout />,
       },
     ],
   },

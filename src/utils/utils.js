@@ -40,3 +40,18 @@ export const getBrandNameById = (id, brands) => {
   const brand = brands.find((brand) => brand._id == id);
   return brand && brand.name;
 };
+
+export const updateProducts = (products, cart, page) => {
+  let result = products
+    .map((product) => ({
+      ...product,
+      serverId: cart.find((el) => el._id === product._id)?.serverId || null,
+    }))
+    .filter((product) => product.isPublish);
+
+  if (page === "new") {
+    return result.filter((product) => product.salePrice > 0);
+  } else {
+    return result;
+  }
+};

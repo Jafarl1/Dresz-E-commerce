@@ -42,4 +42,6 @@ There is also 1 superadmin account from where I can do the same as with the admi
 
 ---
 
-You will not be able to log into the admin account with the customer's credentials, and vice versa. Also, you will not be able to visit account page by writing the address in the url bar if you have not logged in.
+You will not be able to log into the admin account with the customer's credentials, and vice versa. Also, you will not be able to visit account page by writing the address in the url bar if you have not signed in.
+After signing out of the client's account, the data in the cart that was saved in the local storage is deleted (this has nothing to do with the data on the server). If you have already signed into the client's account, and without leaving there you went to the administrator's login page and signed into the administrator's account, an automatic sign out will be performed from the client's account, and in this case the data in the cart that was saved in the locale will be deleted too. The same thing happens when you sign into the client's account without signing out of the administrator account.
+When you sign in to the client's account, you are taken to the client's cabinet. But if you were redirected to the sign in page when you wanted to make a purchase, after signing in you are redirected to the checkout page.
