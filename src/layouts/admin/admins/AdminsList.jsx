@@ -3,12 +3,14 @@ import { PropagateLoader } from "react-spinners";
 import { useDispatch, useSelector } from "react-redux";
 import { removeAdminRED } from "../../../redux/admin/adminsSlice";
 import { removeAdmin } from "../../../services/dashboard/admins";
-import { Box, Paper } from "@mui/material";
+import { Box, Paper } from "/src/styles/mui";
 import Modal from "../../components/Modal";
+import { useTheme } from "../../../hooks/customHooks";
 
 function AdminsList() {
   const [localLoading, setLocalLoading] = useState(false);
   const [selectedAdmin, setSelectedAdmin] = useState(null);
+  const { dark } = useTheme();
   const adminsList = useSelector((state) => state.admins);
   const dispatch = useDispatch();
 
@@ -46,6 +48,11 @@ function AdminsList() {
             square={false}
             className="dataPaper"
             onClick={() => setSelectedAdmin(admin)}
+            sx={{
+              backgroundColor: dark && "#27272a",
+              color: dark && "#d4d4d8",
+              boxShadow: dark && "0px 0.5px 2px 0px #d4d4d8",
+            }}
           >
             <div
               className="paperOverlay"

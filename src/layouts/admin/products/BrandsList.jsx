@@ -3,7 +3,7 @@ import { PropagateLoader } from "react-spinners";
 import { useDispatch, useSelector } from "react-redux";
 import { removeBrandRED } from "../../../redux/common/brandsSlice";
 import { removeBrand } from "../../../services/dashboard/brands";
-import { Box, Paper } from "@mui/material";
+import { Box, Paper } from "/src/styles/mui";
 import Modal from "../../components/Modal";
 
 function BrandsList() {

@@ -3,25 +3,29 @@ import { Navigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { getAdminsListRED } from "../../../redux/admin/adminsSlice";
 import { setLoadingRED } from "../../../redux/loading/loadingSlice";
-import useAuth from "../../../hooks/useAuth";
+import { useAuth, useTheme } from "../../../hooks/customHooks";
 import { getAdmins, registerAdmin } from "../../../services/dashboard/admins";
 import { isSuperadmin } from "../../../utils/utils";
-import Loader from "../../components/Loader";
-import Swal from "sweetalert2";
-import FormInput from "../../components/FormInput";
-import Box from "@mui/material/Box";
-import Container from "@mui/material/Container";
-import Accordion from "@mui/material/Accordion";
-import AccordionActions from "@mui/material/AccordionActions";
-import AccordionSummary from "@mui/material/AccordionSummary";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import ExpandMoreIcon from "@mui/icons-material/ExpandMore";
-import Button from "@mui/material/Button";
 import AdminsList from "./AdminsList";
+import Loader from "../../components/Loader";
+import FormInput from "../../components/FormInput";
+import Swal from "sweetalert2";
+import {
+  Box,
+  Container,
+  Accordion,
+  AccordionActions,
+  AccordionSummary,
+  AccordionDetails,
+  ExpandMoreIcon,
+  Button,
+} from "/src/styles/mui";
+import { BorderColor } from "@mui/icons-material";
 
 function Admins() {
   const formRef = useRef();
   const { loggedUser } = useAuth();
+  const { dark } = useTheme();
   const dispatch = useDispatch();
   const loadingRed = useSelector((state) => state.loading);
 
@@ -94,11 +98,18 @@ function Admins() {
             className="cabinetAccordion"
             expanded={expanded === "panel1"}
             onChange={() => handleChange("panel1")}
+            sx={{
+              backgroundColor: dark && "#27272a",
+              boxShadow: dark && "0px 0.5px 2px 0px #d4d4d8",
+            }}
           >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel3-content"
               id="panel3-header"
+              sx={{
+                color: dark && "#d4d4d8",
+              }}
             >
               Add a new admin
             </AccordionSummary>
@@ -153,11 +164,18 @@ function Admins() {
             className="cabinetAccordion"
             expanded={expanded === "panel2"}
             onChange={() => handleChange("panel2")}
+            sx={{
+              backgroundColor: dark && "#27272a",
+              boxShadow: dark && "0px 0.5px 2px 0px #d4d4d8",
+            }}
           >
             <AccordionSummary
               expandIcon={<ExpandMoreIcon />}
               aria-controls="panel1-content"
               id="panel1-header"
+              sx={{
+                color: dark && "#d4d4d8",
+              }}
             >
               Admins list
             </AccordionSummary>

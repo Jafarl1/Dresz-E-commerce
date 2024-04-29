@@ -4,29 +4,46 @@ import { setLoadingRED } from "../../redux/loading/loadingSlice";
 import { setCartListRED } from "../../redux/client/cartSlice";
 import { getCartData, postCartData } from "../../services/website/basket";
 import { signInRequest } from "../../services/auth";
-import useAuth from "../../hooks/useAuth";
-import { isClient } from "../../utils/utils";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import Link from "@mui/material/Link";
-import Grid from "@mui/material/Grid";
-import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
+import { useAuth, useTheme } from "../../hooks/customHooks";
+import { formatData, isClient } from "../../utils/utils";
 import Loader from "../components/Loader";
 import { getSingleProduct } from "../../services/website/products";
 import Swal from "sweetalert2";
 
+// import Avatar from "@mui/material/Avatar";
+// import Button from "@mui/material/Button";
+// import CssBaseline from "@mui/material/CssBaseline";
+// import TextField from "@mui/material/TextField";
+// import Link from "@mui/material/Link";
+// import Grid from "@mui/material/Grid";
+// import Box from "@mui/material/Box";
+// import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+// import Typography from "@mui/material/Typography";
+// import Container from "@mui/material/Container";
+
+import {
+  Avatar,
+  Button,
+  CssBaseline,
+  TextField,
+  Link,
+  Grid,
+  Box,
+  LockOutlinedIcon,
+  Typography,
+  Container,
+} from "/src/styles/mui";
+
 function SignIn() {
   const { loggedUser, setLoggedUser } = useAuth();
+  const { dark, changeTheme } = useTheme();
   const navigate = useNavigate();
+  const dispatch = useDispatch();
   const location = useLocation();
+  const brands = useSelector((state) => state.brands);
   const loadingRed = useSelector((state) => state.loading);
   const cartRed = useSelector((state) => state.cart);
-  const dispatch = useDispatch();
+  localStorage.setItem("cart", JSON.stringify(cartRed));
 
   const formattedCartData = (product) => {
     return {
@@ -63,11 +80,15 @@ function SignIn() {
       .filter((product) => product)
       .map((product) => ({
         ...product,
+        productCount: newCartData.find((el) => el.productId === product._id)
+          ?.productCount,
         serverId:
           newCartData.find((el) => el.productId === product._id)?._id || null,
       }));
 
-    localStorage.setItem("cart", JSON.stringify(allProducts));
+    allProducts = formatData({ brands, products: allProducts });
+
+    // localStorage.setItem("cart", JSON.stringify(allProducts));
     dispatch(setCartListRED(allProducts));
   };
 

@@ -19,7 +19,7 @@ import Dashboard from "./layouts/admin/dashboard/Dashboard";
 import Products from "./layouts/admin/products/Products";
 import Admins from "./layouts/admin/admins/Admins";
 import SingleProduct from "./layouts/client/SingleProduct";
-import Checkout from "./layouts/client/Checkout";
+import Checkout from "./layouts/client/checkout/Checkout";
 
 const router = createBrowserRouter([
   {

@@ -1,5 +1,5 @@
 import { useLocation, Outlet } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
+import { useAuth } from "../../hooks/customHooks";
 import Navbar from "../components/Navbar";
 import Home from "./Home";
 import Footer from "../components/Footer";

@@ -8,15 +8,6 @@ function Sale() {
   const brands = useSelector((state) => state.brands);
   const cart = useSelector((state) => state.cart);
 
-  let updatedProducts = products
-    .map((product) => ({
-      ...product,
-      serverId: cart.find((el) => el._id === product._id)?.serverId || null,
-    }))
-    .filter((product) => product.isPublish);
-
-  console.log(updateProducts(products, cart, "new"));
-
   const data = {
     brands,
     products: updateProducts(products, cart, "new"),

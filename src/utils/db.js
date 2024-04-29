@@ -1,7 +1,26 @@
-export const HOME = "/layout";
-export const SALE = "sale";
-export const ABOUT = "about";
-export const CONTACTS = "contacts";
+export const [HOME, SALE, ABOUT, CONTACTS] = [
+  "/layout",
+  "sale",
+  "about",
+  "contacts",
+];
+
+export const [COUNTRY, CITY, DISTRICT, STREET, SUIT, POSTALCODE] = [
+  "country",
+  "city",
+  "district",
+  "street",
+  "suit",
+  "postalCode",
+];
+
+export const [CARD_HOLDER, PAN, EXP_DATE, CVV, BANK] = [
+  "cardHolder",
+  "panNumber",
+  "expiration_date",
+  "cvv",
+  'bank_account'
+];
 
 export const headerLinks = [
   { name: "Shop now", to: "/layout", aosDuration: 400 },
@@ -35,3 +54,9 @@ export const loggedUserPages = [
 ];
 
 export const productCategories = ["all", "shoes", "clothing", "accessories"];
+
+export const orderSteps = [
+  "Shipping address",
+  "Payment details",
+  "Review your order",
+];

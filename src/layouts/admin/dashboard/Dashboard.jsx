@@ -1,6 +1,7 @@
-import Container from "@mui/material/Container";
-import Grid from "@mui/material/Grid";
-import Paper from "@mui/material/Paper";
+// import Container from "@mui/material/Container";
+// import Grid from "@mui/material/Grid";
+// import Paper from "@mui/material/Paper";
+import { Container, Paper, Grid } from "/src/styles/mui";
 import Chart from "../Chart";
 import Deposits from "../Deposits";
 
@@ -8,7 +9,6 @@ function Dashboard() {
   return (
     <Container maxWidth="lg" sx={{ mt: 4, mb: 4 }}>
       <Grid container spacing={3}>
-
         <Grid item xs={12} md={8} lg={9}>
           <Paper
             sx={{
@@ -34,7 +34,6 @@ function Dashboard() {
             <Deposits />
           </Paper>
         </Grid>
-        
       </Grid>
     </Container>
   );

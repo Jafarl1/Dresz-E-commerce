@@ -1,15 +1,27 @@
 import { Link } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
+import { useAuth } from "../../hooks/customHooks";
 import { isSuperadmin } from "../../utils/utils";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import DashboardIcon from "@mui/icons-material/Dashboard";
-import PostAddIcon from "@mui/icons-material/PostAdd";
-import PeopleIcon from "@mui/icons-material/People";
-import PaymentsIcon from "@mui/icons-material/Payments";
-import BarChartIcon from "@mui/icons-material/BarChart";
-import LogoutIcon from "@mui/icons-material/Logout";
+// import ListItemButton from "@mui/material/ListItemButton";
+// import ListItemIcon from "@mui/material/ListItemIcon";
+// import ListItemText from "@mui/material/ListItemText";
+// import DashboardIcon from "@mui/icons-material/Dashboard";
+// import PostAddIcon from "@mui/icons-material/PostAdd";
+// import PeopleIcon from "@mui/icons-material/People";
+// import PaymentsIcon from "@mui/icons-material/Payments";
+// import BarChartIcon from "@mui/icons-material/BarChart";
+// import LogoutIcon from "@mui/icons-material/Logout";
+
+import {
+  ListItemButton,
+  ListItemIcon,
+  ListItemText,
+  DashboardIcon,
+  PostAddIcon,
+  PeopleIcon,
+  PaymentsIcon,
+  BarChartIcon,
+  LogoutIcon,
+} from "/src/styles/mui";
 
 export const mainListItems = () => {
   const { loggedUser } = useAuth();

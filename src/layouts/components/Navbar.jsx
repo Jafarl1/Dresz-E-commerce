@@ -2,20 +2,33 @@ import { useState } from "react";
 import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { setCartListRED } from "../../redux/client/cartSlice";
-import useAuth from "../../hooks/useAuth";
+import { useAuth, useTheme } from "../../hooks/customHooks";
 import cartIcon from "../../assets/icons/cart-icon.png";
 import favoriteIcon from "../../assets/icons/favorite-icon.png";
 import userIcon from "../../assets/icons/user-icon.png";
 import LogoIcon from "./LogoIcon";
 import { mainSections, userSignPages, loggedUserPages } from "../../utils/db";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
-import Menu from "@mui/material/Menu";
-import MenuIcon from "@mui/icons-material/Menu";
-import Container from "@mui/material/Container";
-import Avatar from "@mui/material/Avatar";
+import SwitchTheme from "../components/SwitchTheme";
+
+// import AppBar from "@mui/material/AppBar";
+// import Box from "@mui/material/Box";
+// import Toolbar from "@mui/material/Toolbar";
+// import IconButton from "@mui/material/IconButton";
+// import Menu from "@mui/material/Menu";
+// import MenuIcon from "@mui/icons-material/Menu";
+// import Container from "@mui/material/Container";
+// import Avatar from "@mui/material/Avatar";
+
+import {
+  AppBar,
+  Avatar,
+  Box,
+  Container,
+  IconButton,
+  Menu,
+  MenuIcon,
+  Toolbar,
+} from "/src/styles/mui";
 
 function Navbar() {
   const [anchorElNav, setAnchorElNav] = useState(null);
@@ -23,6 +36,7 @@ function Navbar() {
   const favoritesRed = useSelector((state) => state.favorites);
   const cartRed = useSelector((state) => state.cart);
   const { loggedUser, setLoggedUser } = useAuth();
+  const { ifDark } = useTheme();
   const { pathname } = useLocation();
   const dispatch = useDispatch();
   const navigate = useNavigate();
@@ -61,35 +75,16 @@ function Navbar() {
       <AppBar
         position="relative"
         sx={{
-          height: "30px",
+          height: "33px",
           backgroundColor: "var(--main)",
-          fontFamily: "cinzel",
-          paddingTop: "5px",
+          display: "flex",
+          flexDirection: "row",
+          justifyContent: "end",
+          padding: "2px 25px",
           zIndex: 98,
         }}
       >
-        <Container
-          maxWidth="xl"
-          sx={{
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            gap: "50px",
-          }}
-        >
-          <NavLink
-            to="tel:+994777666600"
-            style={{ fontFamily: "Montserrat",fontSize: "12px", color: "var(--light)" }}
-          >
-            +994 77 766 66 00
-          </NavLink>
-          <NavLink
-            to="mailto:zohrabjafarli@gmail.com"
-            style={{ fontFamily: "Montserrat", fontSize: "14px", color: "var(--light)" }}
-          >
-            zohrabjafarli@gmail.com
-          </NavLink>
-        </Container>
+        <SwitchTheme />
       </AppBar>
       <AppBar
         position="relative"

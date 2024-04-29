@@ -10,10 +10,19 @@ import {
 import Swal from "sweetalert2";
 import Select from "../../components/Select";
 import FormInput from "../../components/FormInput";
-import AccordionActions from "@mui/material/AccordionActions";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Button from "@mui/material/Button";
+import { AccordionActions, AccordionDetails, Button } from "/src/styles/mui";
 import closeMiniIcon from "../../../assets/icons/close-mini-icon.png";
+
+const [BRAND_ID, TITLE, DESCRIPTION, PRODUCT_PRICE, SALE_PRICE, STOCK, IMAGES] =
+  [
+    "brandId",
+    "title",
+    "description",
+    "productPrice",
+    "salePrice",
+    "stock",
+    "images",
+  ];
 
 function AddProducts() {
   const dispatch = useDispatch();
@@ -21,19 +30,19 @@ function AddProducts() {
   const productFormRef = useRef();
 
   const [productData, setProductData] = useState({
-    brandId: "",
-    title: "",
-    description: "",
-    productPrice: "",
-    salePrice: "",
-    stock: "",
-    images: [],
+    [BRAND_ID]: "",
+    [TITLE]: "",
+    [DESCRIPTION]: "",
+    [PRODUCT_PRICE]: "",
+    [SALE_PRICE]: "",
+    [STOCK]: "",
+    [IMAGES]: [],
   });
 
   const handleProductData = (fieldName, value) => {
     setProductData((prevState) => ({
       ...prevState,
-      [fieldName]: value,
+      [fieldName]: value.trim(),
     }));
   };
 
@@ -46,7 +55,7 @@ function AddProducts() {
         const base64Data = reader.result;
         setProductData((prevState) => ({
           ...prevState,
-          images: [...prevState.images, base64Data],
+          [IMAGES]: [...prevState.images, base64Data],
         }));
       };
       reader.readAsDataURL(image);
@@ -129,7 +138,7 @@ function AddProducts() {
           <Select
             label="Brand"
             data={brandsList}
-            selected={(value) => handleProductData("brandId", value)}
+            selected={(value) => handleProductData(BRAND_ID, value)}
             classname="cabinetSelectComponent"
           />
           <FormInput
@@ -137,14 +146,14 @@ function AddProducts() {
             type="text"
             label="title"
             placeholder="Enter the product title"
-            onchange={(value) => handleProductData("title", value)}
+            onchange={(value) => handleProductData(TITLE, value)}
           />
           <FormInput
             classname="cabinetSelectComponent"
             type="text"
             label="description"
             placeholder="Enter the product description"
-            onchange={(value) => handleProductData("description", value)}
+            onchange={(value) => handleProductData(DESCRIPTION, value)}
           />
         </div>
         <div className="accordionDetailsHalfDiv">
@@ -153,7 +162,7 @@ function AddProducts() {
             type="number"
             label="stock"
             placeholder="Enter the count of the stock"
-            onchange={(value) => handleProductData("stock", value)}
+            onchange={(value) => handleProductData(STOCK, value)}
           />
           <FormInput
             classname="cabinetSelectComponent"
@@ -161,7 +170,7 @@ function AddProducts() {
             step="0.01"
             label="price, usd"
             placeholder="Enter the price in usd"
-            onchange={(value) => handleProductData("productPrice", value)}
+            onchange={(value) => handleProductData(PRODUCT_PRICE, value)}
           />
           <FormInput
             classname="cabinetSelectComponent"
@@ -169,7 +178,7 @@ function AddProducts() {
             step="0.01"
             label="sale price"
             placeholder="Enter the discount price"
-            onchange={(value) => handleProductData("salePrice", value)}
+            onchange={(value) => handleProductData(SALE_PRICE, value)}
           />
         </div>
       </AccordionDetails>
@@ -184,7 +193,7 @@ function AddProducts() {
             />
             <div className="photoIcon"></div>
             <ul className="photoRequirements">
-              <li>Minimum 4 images.</li>
+              <li>Maximum 4 images.</li>
               <li>Optimal size is 1024x768.</li>
               <li>
                 Please upload some photos where your product is clearly visible

@@ -5,9 +5,10 @@ import { setLoadingRED } from "../../../redux/loading/loadingSlice";
 import { resetForm, isDataValid } from "../../../utils/utils";
 import { createBrand, getBrands } from "../../../services/dashboard/brands";
 import Swal from "sweetalert2";
-import AccordionActions from "@mui/material/AccordionActions";
-import AccordionDetails from "@mui/material/AccordionDetails";
-import Button from "@mui/material/Button";
+// import AccordionActions from "@mui/material/AccordionActions";
+// import AccordionDetails from "@mui/material/AccordionDetails";
+// import Button from "@mui/material/Button";
+import { AccordionActions, AccordionDetails, Button } from "/src/styles/mui";
 import FormInput from "../../components/FormInput";
 
 function AddBrand() {

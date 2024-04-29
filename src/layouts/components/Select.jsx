@@ -1,5 +1,3 @@
-import React from "react";
-
 function Select({ label, data, selected, classname }) {
   return (
     <label htmlFor={label} className={classname}>

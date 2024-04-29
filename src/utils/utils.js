@@ -55,3 +55,14 @@ export const updateProducts = (products, cart, page) => {
     return result;
   }
 };
+
+export const formatData = (data) => {
+  const formatted = data.products.map((product) => {
+    return {
+      ...product,
+      brand: getBrandNameById(product.brandId, data.brands),
+    };
+  });
+
+  return formatted;
+};

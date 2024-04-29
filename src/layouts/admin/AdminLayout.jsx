@@ -1,5 +1,5 @@
 import { Navigate, Outlet } from "react-router-dom";
-import useAuth from "../../hooks/useAuth";
+import { useAuth } from "../../hooks/customHooks";
 import { isAdminOrSuperadmin, isClient } from "../../utils/utils";
 import { useSelector } from "react-redux";
 import Loader from "../components/Loader";

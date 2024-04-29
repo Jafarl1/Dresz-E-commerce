@@ -8,9 +8,10 @@ import { setCartListRED } from "./redux/client/cartSlice";
 import { getAllBrands } from "./services/website/brands";
 import { getAllProducts } from "./services/website/products";
 import AppRouter from "./AppRouter";
-import { AuthContextProvider } from "./contexts/AuthContext";
+import { AuthProvider } from "./contexts/AuthContext";
 import AOS from "aos";
 import "aos/dist/aos.css";
+import { ThemeProvider } from "./contexts/ThemeContext";
 
 function App() {
   const dispatch = useDispatch();
@@ -65,9 +66,11 @@ function App() {
   }, []);
 
   return (
-    <AuthContextProvider>
-      <AppRouter />
-    </AuthContextProvider>
+    <AuthProvider>
+      <ThemeProvider>
+        <AppRouter />
+      </ThemeProvider>
+    </AuthProvider>
   );
 }
 

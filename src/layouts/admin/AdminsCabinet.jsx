@@ -9,30 +9,42 @@ import { getAdmins } from "../../services/dashboard/admins";
 import { getBrands } from "../../services/dashboard/brands";
 import { getProducts } from "../../services/dashboard/products";
 
-import useAuth from "../../hooks/useAuth";
+import { useAuth, useTheme } from "../../hooks/customHooks";
+import SwitchTheme from "../components/SwitchTheme";
 import { mainListItems, ExitButton } from "./ListItems";
 import Loader from "./../components/Loader";
 import Dashboard from "./dashboard/Dashboard";
-import {
-  isAdminOrSuperadmin,
-  isSuperadmin,
-  notificationsLabel,
-} from "../../utils/utils";
+import { isAdminOrSuperadmin, isSuperadmin } from "../../utils/utils";
 
 import { styled } from "@mui/material/styles";
-import CssBaseline from "@mui/material/CssBaseline";
-import MuiDrawer from "@mui/material/Drawer";
-import Box from "@mui/material/Box";
-import MuiAppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import List from "@mui/material/List";
-import Typography from "@mui/material/Typography";
-import Divider from "@mui/material/Divider";
-import IconButton from "@mui/material/IconButton";
-import Badge from "@mui/material/Badge";
-import MenuIcon from "@mui/icons-material/Menu";
-import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
-import NotificationsIcon from "@mui/icons-material/Notifications";
+
+// import CssBaseline from "@mui/material/CssBaseline";
+// import MuiDrawer from "@mui/material/Drawer";
+// import Box from "@mui/material/Box";
+// import MuiAppBar from "@mui/material/AppBar";
+// import Toolbar from "@mui/material/Toolbar";
+// import List from "@mui/material/List";
+// import Typography from "@mui/material/Typography";
+// import Divider from "@mui/material/Divider";
+// import IconButton from "@mui/material/IconButton";
+// import Badge from "@mui/material/Badge";
+// import MenuIcon from "@mui/icons-material/Menu";
+// import ChevronLeftIcon from "@mui/icons-material/ChevronLeft";
+// import NotificationsIcon from "@mui/icons-material/Notifications";
+
+import {
+  Box,
+  CssBaseline,
+  MuiDrawer,
+  MuiAppBar,
+  Toolbar,
+  List,
+  Typography,
+  Divider,
+  IconButton,
+  MenuIcon,
+  ChevronLeftIcon,
+} from "/src/styles/mui";
 
 const drawerWidth = 240;
 
@@ -85,6 +97,7 @@ function AdminsCabinet() {
   const [open, setOpen] = useState(true);
 
   const { loggedUser } = useAuth();
+  const { ifDark } = useTheme();
   const { pathname } = useLocation();
 
   const dispatch = useDispatch();
@@ -159,7 +172,7 @@ function AdminsCabinet() {
   } else {
     if (loggedUser && isAdminOrSuperadmin(loggedUser) && !loadingRed)
       return (
-        <div className="adminsCabinet">
+        <div className={`adminsCabinet ${ifDark("bg-zinc-800")}`}>
           <Box sx={{ display: "flex" }}>
             <CssBaseline />
             <AppBar position="absolute" open={open}>
@@ -189,19 +202,14 @@ function AdminsCabinet() {
                 >
                   Dashboard
                 </Typography>
-                <IconButton
-                  color="inherit"
-                  aria-label={notificationsLabel(100)}
-                >
-                  <Badge badgeContent={100} color="error">
-                    <NotificationsIcon />
-                  </Badge>
-                </IconButton>
+
+                <SwitchTheme />
               </Toolbar>
             </AppBar>
 
-            <Drawer variant="permanent" open={open}>
+            <Drawer variant="permanent" open={open} sx={{}}>
               <Toolbar
+                className={`${ifDark("border border-zinc-800 bg-zinc-800 ")}`}
                 sx={{
                   display: "flex",
                   alignItems: "center",
@@ -214,7 +222,9 @@ function AdminsCabinet() {
                 </IconButton>
               </Toolbar>
               <Divider />
-              <List component="nav">
+              <List
+                className={`${ifDark("border border-zinc-800 bg-zinc-800 ")}`}
+              >
                 {mainListItems()}
                 <Divider sx={{ my: 1 }} />
                 <ExitButton />
@@ -230,7 +240,10 @@ function AdminsCabinet() {
                 mt: "64px",
               }}
             >
-              <h2 className="userGreeting">
+              <h2
+                className={`w-full flex justify-center items-center pb-2 my-4 text-xl border-b border-zinc-200 
+                ${ifDark("text-amber-50")}`}
+              >
                 Hello, {loggedUser.name} {loggedUser.surname} !
               </h2>
               {pathname.replaceAll("/", "") === "adminadmins_cabinet" ? (

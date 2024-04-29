@@ -1,7 +1,9 @@
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
-import useStorage from "../../hooks/useStorage";
-import useAuth from "../../hooks/useAuth";
+import { useAuth, useStorage } from "../../hooks/customHooks";
+// import { useAuth } from "../../hooks/useAuth";
+// import { useStorage } from "../../hooks/useStorage";
+
 import favoriteIcon from "../../assets/icons/favorite-icon.png";
 import inFavoritesIcon from "../../assets/icons/in-favorites-icon.png";
 import cartIcon from "../../assets/icons/cart-icon.png";
@@ -21,7 +23,7 @@ function Card({ product }) {
   };
 
   return (
-    <div className="card" onClick={() => navigateToProductPage(product)}>
+    <div className="card bg-white" onClick={() => navigateToProductPage(product)}>
       <img src={product.images[0].url} alt={product.title} />
       <div className="cardInfo">
         <p style={{ fontWeight: "500", marginBottom: "5px" }}>

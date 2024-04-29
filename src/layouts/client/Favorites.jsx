@@ -1,4 +1,3 @@
-import React from "react";
 import { useSelector } from "react-redux";
 import DataContainer from "./data-container/DataContainer";
 import Loader from "../components/Loader";

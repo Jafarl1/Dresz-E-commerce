@@ -21,10 +21,16 @@ export const getCartData = async () => {
   }
 };
 
-export const deleteFromCart = async (id) => {
-  if (!id) {
-    throw new Error("Id is missing");
+export const updateCartData = async (id, data) => {
+  try {
+    const response = await API().put(`site/basket/${id}`, data);
+    return response;
+  } catch (error) {
+    throw new Error("Cart product update error: ", error);
   }
+};
+
+export const deleteFromCart = async (id) => {
   try {
     const response = await API().delete(`site/basket/${id}`);
     return response;

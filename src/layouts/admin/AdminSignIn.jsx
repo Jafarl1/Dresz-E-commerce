@@ -1,17 +1,29 @@
 import { useDispatch, useSelector } from "react-redux";
 import { setLoadingRED } from "../../redux/loading/loadingSlice";
 import { setCartListRED } from "../../redux/client/cartSlice";
-import useAuth from "../../hooks/useAuth";
+import { useAuth } from "../../hooks/customHooks";
 import { signInRequest } from "../../services/auth";
 import { isAdminOrSuperadmin, isClient } from "../../utils/utils";
-import Avatar from "@mui/material/Avatar";
-import Button from "@mui/material/Button";
-import CssBaseline from "@mui/material/CssBaseline";
-import TextField from "@mui/material/TextField";
-import Box from "@mui/material/Box";
-import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
-import Typography from "@mui/material/Typography";
-import Container from "@mui/material/Container";
+// import Avatar from "@mui/material/Avatar";
+// import Button from "@mui/material/Button";
+// import CssBaseline from "@mui/material/CssBaseline";
+// import TextField from "@mui/material/TextField";
+// import Box from "@mui/material/Box";
+// import LockOutlinedIcon from "@mui/icons-material/LockOutlined";
+// import Typography from "@mui/material/Typography";
+// import Container from "@mui/material/Container";
+
+import {
+  Avatar,
+  Button,
+  CssBaseline,
+  TextField,
+  Box,
+  LockOutlinedIcon,
+  Typography,
+  Container,
+} from "/src/styles/mui";
+
 import Loader from "../components/Loader";
 
 function AdminSignIn() {

@@ -10,8 +10,27 @@ const cartSlice = createSlice({
     addToCartRED: (state, action) => {
       state.push(action.payload);
     },
+    decreaseProductCountRED: (state, action) => {
+      const index = state.indexOf(
+        state.find((el) => el._id === action.payload)
+      );
+      if (state[index].productCount > 1) {
+        state[index].productCount--;
+      }
+    },
+    increaseProductCountRED: (state, action) => {
+      const index = state.indexOf(
+        state.find((el) => el._id === action.payload)
+      );
+      state[index].productCount++;
+    },
   },
 });
 
-export const { setCartListRED, addToCartRED } = cartSlice.actions;
+export const {
+  setCartListRED,
+  addToCartRED,
+  decreaseProductCountRED,
+  increaseProductCountRED,
+} = cartSlice.actions;
 export default cartSlice.reducer;

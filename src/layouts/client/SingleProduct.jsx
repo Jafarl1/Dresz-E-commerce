@@ -1,12 +1,12 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
-import useStorage from "../../hooks/useStorage";
-import { Container } from "@mui/material";
+import { useAuth, useStorage } from "../../hooks/customHooks";
+import { Container } from "/src/styles/mui";
 import favoriteIcon from "../../assets/icons/favorite-icon.png";
 import inFavoritesIcon from "../../assets/icons/in-favorites-icon.png";
 import cartIcon from "../../assets/icons/cart-icon.png";
 import inCartIcon from "../../assets/icons/in-cart-icon.png";
-import useAuth from "../../hooks/useAuth";
+
 import { isClient } from "../../utils/utils";
 
 function SingleProduct() {
@@ -26,7 +26,11 @@ function SingleProduct() {
     }
   };
 
-  const handleBuyButton = () => {
+  const handleShopButton = async (e, product) => {
+    if (!cartRed.some((item) => item._id === product._id)) {
+      await handleLocalStorageData(e, "cart", product);
+    }
+
     if (isClient(loggedUser)) {
       navigate("/layout/checkout");
     } else {
@@ -79,7 +83,10 @@ function SingleProduct() {
             onClick={(e) => handleLocalStorageData(e, "cart", product)}
           />
         </div>
-        <button className="shopNow" onClick={handleBuyButton}>
+        <button
+          className="shopNow"
+          onClick={(e) => handleShopButton(e, product)}
+        >
           SHOP NOW
         </button>
       </div>

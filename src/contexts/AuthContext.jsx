@@ -5,7 +5,7 @@ import { getLoggedUserDataByToken } from "../services/auth";
 
 export const AuthContext = createContext();
 
-export function AuthContextProvider({ children }) {
+export function AuthProvider({ children }) {
   const [loggedUser, setLoggedUser] = useState();
 
   const dispatch = useDispatch();
@@ -39,5 +39,3 @@ export function AuthContextProvider({ children }) {
 
   return <AuthContext.Provider value={value}>{children}</AuthContext.Provider>;
 }
-
-export default AuthContext;

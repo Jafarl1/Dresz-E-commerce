@@ -4,7 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { removeProductRED } from "../../../redux/common/productsSlice";
 import { removeProduct } from "../../../services/dashboard/products";
 import { getBrandNameById } from "../../../utils/utils";
-import { Box, Paper } from "@mui/material";
+import { Box, Paper } from "/src/styles/mui";
 import Modal from "../../components/Modal";
 
 function ProductsList() {
